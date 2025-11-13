@@ -131,7 +131,7 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 .service h3{margin:0 0 6px;font-size:16px;}
 .service p{margin:0;color:var(--muted);font-size:14px;}
 
-/* Kontakt-Section */
+/* Kontakt-Section - Desktop 2 Spalten */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;align-items:stretch;}
 .contact-grid > * { display:flex; flex-direction:column; height:100%; }
 .contact-grid .card > div:last-child { flex:1; min-height:0; }
@@ -173,7 +173,7 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   .nav-links{flex-direction:column;gap:8px;width:100%;align-items:stretch;}
   .nav-bar a{text-align:center;padding:10px 12px;}
   .dropdown{width:100%;}
-  .dropdown > a{width:100%;}
+  .dropdown > a{width:100%;display:block;}
   .dropdown-content{position:static;width:100%;box-shadow:none;padding:0;margin-top:0;background:rgba(2,132,199,0.05);}
   .dropdown-content a{padding:10px 20px;}
   .btn{width:100%;}
@@ -195,14 +195,29 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   .service h3{font-size:17px;}
   .service p{font-size:14px;}
   
-  /* Kontakt Mobile - Reihenfolge ändern */
-  .contact-headers{grid-template-columns:1fr;gap:12px;}
-  .contact-headers h2{font-size:22px;text-align:center;}
-  .contact-headers h2:first-child{order:2;}
-  .contact-headers h2:last-child{order:1;}
-  .contact-grid{grid-template-columns:1fr;gap:16px;}
-  .contact-grid > div:first-child{order:2;}
-  .contact-grid > div:last-child{order:1;}
+  /* Kontakt Mobile - WICHTIG: Einspaltig untereinander */
+  .contact-headers{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .contact-headers h2{
+    font-size:22px;
+    text-align:left;
+  }
+  
+  /* Buttons-Section kommt zuerst */
+  .contact-headers h2:nth-child(1){order:2;}
+  .contact-headers h2:nth-child(2){order:1;}
+  
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  
+  /* Buttons-Card kommt zuerst */
+  .contact-grid > div:nth-child(1){order:2;}
+  .contact-grid > div:nth-child(2){order:1;}
+  
   .contact-grid .card{padding:16px;}
   .contact-grid .card p{font-size:14px;}
   .contact-grid iframe{min-height:280px!important;}
