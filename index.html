@@ -138,6 +138,7 @@ h2{color:var(--sky-600);margin-top:0;margin-bottom:0;}
 .contact-headers{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start; margin-bottom:0;}
 .contact-headers h2{margin:0; font-size:1.5rem;}
 .contact-headers h2:nth-child(2){justify-self:start;}
+.contact-item{display:contents;}
 .rezept-btn { display:flex;align-items:center;justify-content:center; width:100%; color:white; border-radius:10px; text-decoration:none; font-weight:600; background:var(--sky-600); border:2px solid var(--sky-600); flex:1; transition:all 0.2s ease; margin-bottom:10px; padding:12px 0; }
 .rezept-btn:hover { background:var(--sky-700); }
 .cookie-banner { position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid #dbeafe;box-shadow:0 4px 18px rgba(2,132,199,0.1);padding:18px;border-radius:12px;display:none;max-width:480px;z-index:9999;font-size:14px;}
@@ -195,28 +196,42 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   .service h3{font-size:17px;}
   .service p{font-size:14px;}
   
-  /* Kontakt Mobile - WICHTIG: Einspaltig untereinander */
+  /* Kontakt Mobile - WICHTIG: Jede Überschrift direkt über ihrem Inhalt */
   .contact-headers{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  .contact-headers h2{
-    font-size:22px;
-    text-align:left;
+    display:none; /* Überschriften werden im Mobile-Layout anders platziert */
   }
   
-  /* Buttons-Section kommt zuerst */
-  .contact-headers h2:nth-child(1){order:2;}
-  .contact-headers h2:nth-child(2){order:1;}
+  .contact-item{
+    display:block;
+  }
+  
+  /* Überschrift vor jedem Card einfügen */
+  .contact-item:first-child::before{
+    content:"Kontakt & Lage";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
+  }
+  
+  .contact-item:last-child::before{
+    content:"Online-Rezeption";
+    display:block;
+    color:var(--sky-600);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:14px;
+  }
   
   .contact-grid{
     grid-template-columns:1fr;
-    gap:24px;
+    gap:32px;
   }
   
-  /* Buttons-Card kommt zuerst */
-  .contact-grid > div:nth-child(1){order:2;}
-  .contact-grid > div:nth-child(2){order:1;}
+  /* Online-Rezeption kommt zuerst */
+  .contact-item:first-child{order:2;}
+  .contact-item:last-child{order:1;}
   
   .contact-grid .card{padding:16px;}
   .contact-grid .card p{font-size:14px;}
@@ -385,24 +400,28 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   </div>
 
   <div class="contact-grid">
-    <div class="card">
-      <div style="line-height:1.3; margin-bottom:8px;">
-        <p style="margin:0 0 4px;">Adresse: Neumühlen 40, 22763 Hamburg</p>
-        <p style="margin:0 0 4px;">Telefon: <a href="tel:+49123456789" style="color:inherit; text-decoration:none;">+49 123 456 789</a></p>
-        <p style="margin:0 0 4px;">WhatsApp: <a href="https://wa.me/4912345678" target="_blank" style="color:var(--sky-600); text-decoration:none; font-weight:600;">+49 123 456 78</a> </p>
-        <p style="margin:0;">E-Mail: <a href="mailto:info@gemeinschaftspraxis-w.example" style="color:inherit; text-decoration:none;">info@gemeinschaftspraxis-w.example</a></p>
-      </div>
-      <div style="margin-top:8px; border-radius:8px; overflow:hidden; border:1px solid #eef6fb; flex:1">
-        <iframe title="Praxisstandort" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2369.5326744869635!2d9.917332!3d53.544064299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1859d3ad331c5%3A0x38f1f22b2f750391!2sNeum%C3%BChlen%2040%2C%2022763%20Hamburg!5e0!3m2!1sde!2sde!4v1234567890123" style="width:100%; height:100%; border:0; min-height:320px;" loading="lazy"> </iframe>
+    <div class="contact-item">
+      <div class="card">
+        <div style="line-height:1.3; margin-bottom:8px;">
+          <p style="margin:0 0 4px;">Adresse: Neumühlen 40, 22763 Hamburg</p>
+          <p style="margin:0 0 4px;">Telefon: <a href="tel:+49123456789" style="color:inherit; text-decoration:none;">+49 123 456 789</a></p>
+          <p style="margin:0 0 4px;">WhatsApp: <a href="https://wa.me/4912345678" target="_blank" style="color:var(--sky-600); text-decoration:none; font-weight:600;">+49 123 456 78</a> </p>
+          <p style="margin:0;">E-Mail: <a href="mailto:info@gemeinschaftspraxis-w.example" style="color:inherit; text-decoration:none;">info@gemeinschaftspraxis-w.example</a></p>
+        </div>
+        <div style="margin-top:8px; border-radius:8px; overflow:hidden; border:1px solid #eef6fb; flex:1">
+          <iframe title="Praxisstandort" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2369.5326744869635!2d9.917332!3d53.544064299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1859d3ad331c5%3A0x38f1f22b2f750391!2sNeum%C3%BChlen%2040%2C%2022763%20Hamburg!5e0!3m2!1sde!2sde!4v1234567890123" style="width:100%; height:100%; border:0; min-height:320px;" loading="lazy"> </iframe>
+        </div>
       </div>
     </div>
 
-    <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:10px; flex:1;">
-      <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="rezept-btn">Kalender Termin vereinbaren</a>
-      <a class="rezept-btn" id="btn-befund">Befund anfordern</a>
-      <a class="rezept-btn" id="btn-rezept">Rezept anfordern</a>
-      <a class="rezept-btn" id="btn-ueberweisung">Überweisung anfordern</a>
-      <a class="rezept-btn" id="btn-notfall">Notfall-Hilfe</a>
+    <div class="contact-item">
+      <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:10px; flex:1;">
+        <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="rezept-btn">Kalender Termin vereinbaren</a>
+        <a class="rezept-btn" id="btn-befund">Befund anfordern</a>
+        <a class="rezept-btn" id="btn-rezept">Rezept anfordern</a>
+        <a class="rezept-btn" id="btn-ueberweisung">Überweisung anfordern</a>
+        <a class="rezept-btn" id="btn-notfall">Notfall-Hilfe</a>
+      </div>
     </div>
   </div>
 </section>
