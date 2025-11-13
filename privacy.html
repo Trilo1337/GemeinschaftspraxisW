@@ -25,6 +25,28 @@
     .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 22px rgba(2,132,199,0.06);padding:18px;border:1px solid #eef6fb;margin-top:20px;}
     footer{margin-top:28px;padding:18px 0;border-top:1px solid #eef6fb;color:var(--muted);font-size:13px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;}
     footer a{margin-left:12px;color:var(--text);text-decoration:none;}
+    
+    /* Mobile Optimierung */
+@media (max-width:900px){
+  .container{padding:16px;}
+  
+  /* Header Mobile */
+  header{padding:16px 0 8px 0;margin-bottom:12px;}
+  .brand{flex-direction:column;text-align:center;gap:12px;margin-bottom:16px;}
+  .brand img{height:80px;}
+  .brand h1{font-size:34px;}
+  .brand p.lead{font-size:15px;}
+  
+  /* Navigation Mobile */
+  .nav-bar-inner{padding:0 16px;flex-direction:column;gap:12px;}
+  .nav-links{flex-direction:column;gap:8px;width:100%;align-items:stretch;}
+  .nav-bar a{text-align:center;padding:10px 12px;}
+  .dropdown{width:100%;}
+  .dropdown > a{width:100%;display:block;}
+  .dropdown-content{position:static;width:100%;box-shadow:none;padding:0;margin-top:0;background:rgba(2,132,199,0.05);}
+  .dropdown-content a{padding:10px 20px;}
+  .btn{width:100%;}
+  
   </style>
 </head>
 <body>
@@ -192,3 +214,4 @@
   </script>
 </body>
 </html>
+
