@@ -195,13 +195,20 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   .service h3{font-size:17px;}
   .service p{font-size:14px;}
   
-  /* Kontakt Mobile */
+  /* Kontakt Mobile - Reihenfolge ändern */
   .contact-headers{grid-template-columns:1fr;gap:12px;}
   .contact-headers h2{font-size:22px;text-align:center;}
+  .contact-headers h2:first-child{order:2;}
+  .contact-headers h2:last-child{order:1;}
   .contact-grid{grid-template-columns:1fr;gap:16px;}
+  .contact-grid > div:first-child{order:2;}
+  .contact-grid > div:last-child{order:1;}
   .contact-grid .card{padding:16px;}
   .contact-grid .card p{font-size:14px;}
   .contact-grid iframe{min-height:280px!important;}
+  
+  /* Leistungen zentrieren */
+  .service{text-align:center;}
   
   /* Buttons Mobile */
   .rezept-btn{padding:14px 0;font-size:15px;}
