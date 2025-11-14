@@ -350,6 +350,24 @@ footer {
     line-height: 1.1;
   }
 }
+
+/* Schneefall-Animation */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  z-index: 9999;
+  user-select: none;
+  pointer-events: none;
+  color: #fff;
+  font-size: 1em;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
 </style>
 </head>
 <body>
@@ -619,27 +637,43 @@ footer {
 // Footer Jahr
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Schneefall-Effekt erstellen
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.innerHTML = '❄';
+  snowflake.style.left = Math.random() * 100 + '%';
+  snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+  snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+  snowflake.style.fontSize = Math.random() * 30 + 10 + 'px';
+  
+  document.body.appendChild(snowflake);
+  
+  setTimeout(() => {
+    snowflake.remove();
+  }, 8000);
+}
+
+setInterval(createSnowflake, 300);
+
 // Weihnachts-Overlay - nur alle 20 Minuten anzeigen
 const weihnachtenOverlay = document.getElementById('overlay-weihnachten');
 const weihnachtenBtn = document.getElementById('btn-weihnachten-close');
-const OVERLAY_COOLDOWN = 20 * 60 * 1000; // 20 Minuten in Millisekunden
+const OVERLAY_COOLDOWN = 20 * 60 * 1000;
 
-// Prüfen, ob Overlay angezeigt werden soll
 function shouldShowOverlay() {
   const lastShown = localStorage.getItem('weihnachtenOverlayLastShown');
-  if (!lastShown) return true; // Noch nie angezeigt
+  if (!lastShown) return true;
   
   const timePassed = Date.now() - parseInt(lastShown);
-  return timePassed >= OVERLAY_COOLDOWN; // Mehr als 20 Minuten vergangen
+  return timePassed >= OVERLAY_COOLDOWN;
 }
 
-// Overlay anzeigen wenn Zeit abgelaufen
 if (shouldShowOverlay()) {
   weihnachtenOverlay.style.display = 'flex';
   localStorage.setItem('weihnachtenOverlayLastShown', Date.now().toString());
 }
 
-// Overlay schließen
 if (weihnachtenBtn) {
   weihnachtenBtn.addEventListener('click', () => {
     weihnachtenOverlay.style.display = 'none';
