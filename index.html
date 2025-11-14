@@ -654,7 +654,10 @@ function createSnowflake() {
   }, 8000);
 }
 
-setInterval(createSnowflake, 300);
+// Unterschiedliche Frequenz für Mobile und Desktop
+const isMobile = window.innerWidth <= 900;
+const snowInterval = isMobile ? 1200 : 300; // Mobile: alle 1.2s, Desktop: alle 0.3s
+setInterval(createSnowflake, snowInterval);
 
 // Weihnachts-Overlay - nur alle 20 Minuten anzeigen
 const weihnachtenOverlay = document.getElementById('overlay-weihnachten');
@@ -760,4 +763,5 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
 
