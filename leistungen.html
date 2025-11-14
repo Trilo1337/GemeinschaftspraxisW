@@ -177,6 +177,23 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
   h1{font-size:24px;}
   h2{font-size:16px;}
 }
+  @media (max-width: 900px) {
+  /* ... deine bisherigen mobilen CSS-Regeln ... */
+
+  /* Überschrift bleibt schwarz */
+  .brand h1, .brand p.lead {
+    color: #0f172a; /* Schwarz, wie im Desktop */
+  }
+
+  /* Navigationsreiter: Hintergrundfarbe weniger intensiv */
+  .nav-bar {
+    background-color: #e6f6ff; /* Helleres Blau */
+  }
+
+  .nav-bar a:hover {
+    background-color: rgba(2, 132, 199, 0.05); /* Sehr dezenter Hover-Effekt */
+  }
+}
 </style>
 </head>
 <body>
@@ -458,6 +475,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
 
