@@ -373,6 +373,45 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
+/* Farb- und Brillanz-Optimierung für Smartphones */
+@media (max-width: 900px) {
+
+  body {
+    background: linear-gradient(180deg, #e9f7ff, #ffffff);
+    filter: brightness(1.05) saturate(1.15);
+  }
+
+  .brand img {
+    filter: brightness(1.2) contrast(1.1);
+  }
+
+  .hero h2, h2, h3, .brand h1, .brand p.lead {
+    color: #0279b2;
+  }
+
+  .card {
+    background-color: #ffffff;
+    box-shadow: 0 6px 24px rgba(2,132,199,0.12);
+  }
+
+  .nav-bar {
+    background-color: #d8f3ff;
+  }
+
+  .btn, .rezept-btn {
+    background-color: #039be5;
+    border-color: #039be5;
+  }
+
+  .btn:hover, .rezept-btn:hover {
+    background-color: #0284c7;
+  }
+
+  footer {
+    background: #f1faff;
+  }
+}
+
 </style>
 </head>
 <body>
