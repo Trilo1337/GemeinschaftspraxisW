@@ -353,7 +353,25 @@ footer {
       <img src="images/logo.png" alt="Praxis W Logo" />
       <div>
         <h1>Gemeinschaftspraxis W</h1>
-        <p class="lead">Hausärztliche Gemeinschaftspraxis – mit Herz und Kompetenz</p>
+        <p class="lead">
+  Hausärztliche Gemeinschaftspraxis
+  <span class="mobile-break">– mit Herz und Kompetenz</span>
+</p>
+
+<style>
+/* Standard: Desktop = alles in einer Zeile */
+.lead .mobile-break {
+  display: inline;
+}
+
+/* Mobile: Text unterhalb */
+@media (max-width: 767px) {
+  .lead .mobile-break {
+    display: block;
+    margin-top: 0.4rem;
+  }
+}
+</style>
       </div>
     </div>
   </header>
@@ -683,3 +701,4 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
