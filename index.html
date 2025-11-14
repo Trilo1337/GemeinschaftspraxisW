@@ -18,38 +18,7 @@
 --container: 1100px;
 }
 *{box-sizing:border-box;}
-body{
-  font-family:Inter, sans-serif; 
-  margin:0; 
-  color:var(--text); 
-  background:linear-gradient(180deg,var(--sky-50),#ffffff);
-  position:relative;
-  overflow-x:hidden;
-}
-body::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -10%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(2,132,199,0.15) 0%, transparent 70%);
-  filter: blur(80px);
-  z-index: -1;
-  pointer-events: none;
-}
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -30%;
-  right: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(2,132,199,0.12) 0%, transparent 70%);
-  filter: blur(90px);
-  z-index: -1;
-  pointer-events: none;
-}
+body{font-family:Inter, sans-serif; margin:0; color:var(--text); background:linear-gradient(180deg,var(--sky-50),#ffffff);}
 .container{max-width:var(--container);margin:0 auto;padding:28px;}
 
 /* HEADER */
@@ -373,24 +342,6 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
-@media (max-width: 900px) {
-  /* ... deine bisherigen mobilen CSS-Regeln ... */
-
-  /* Überschrift bleibt schwarz */
-  .brand h1, .brand p.lead {
-    color: #0f172a; /* Schwarz, wie im Desktop */
-  }
-
-  /* Navigationsreiter: Hintergrundfarbe weniger intensiv */
-  .nav-bar {
-    background-color: #e6f6ff; /* Helleres Blau */
-  }
-
-  .nav-bar a:hover {
-    background-color: rgba(2, 132, 199, 0.05); /* Sehr dezenter Hover-Effekt */
-  }
-}
-
 </style>
 </head>
 <body>
@@ -427,9 +378,10 @@ footer {
           <a href="leistungen.html#wundversorgung">Wundversorgung</a>
           <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
           <a href="leistungen.html#hausbesuche">Hausbesuche</a>
+	  <a href="https://praxisw.base44.app/" target="_blank" rel="noopener noreferrer">Praxis-App</a>
         </div>
       </div>
-      <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
+         <a href="leistungen.html#videosprechstunde">Videosprechstunde</a>
       <a href="#contact">Kontakt</a>
     </div>
     <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" rel="noopener" class="btn btn-container">Termin vereinbaren</a>
@@ -540,9 +492,8 @@ footer {
     </div>
 
     <div class="contact-item">
-      <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:8px; flex:1;">
+      <div class="card" style="padding:18px; display:flex; flex-direction:column; gap:10px; flex:1;">
         <a href="https://www.doctolib.de/allgemeinmedizin/bornheim/tristan-wetzel" target="_blank" class="rezept-btn">Kalender Termin vereinbaren</a>
-        <a href="leistungen.html#videosprechstunde" class="rezept-btn">Videosprechstunde</a>
         <a class="rezept-btn" id="btn-befund">Befund anfordern</a>
         <a class="rezept-btn" id="btn-rezept">Rezept anfordern</a>
         <a class="rezept-btn" id="btn-ueberweisung">Überweisung anfordern</a>
@@ -575,6 +526,11 @@ footer {
     </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -727,4 +683,3 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
-
