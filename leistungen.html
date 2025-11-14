@@ -205,7 +205,26 @@ footer a{margin-left:12px;color:var(--text);text-decoration:none;}
       <img src="images/logo.png" alt="Praxis W Logo" />
       <div>
         <span class="brand-title">Gemeinschaftspraxis W</span>
-        <p class="lead">Hausärztliche Gemeinschaftspraxis – mit Herz und Kompetenz</p>
+        <p class="lead"> 
+  Hausärztliche Gemeinschaftspraxis –
+  <span class="mobile-break">mit Herz und Kompetenz</span>
+</p>
+
+<style>
+/* Desktop: alles in einer Zeile */
+.lead .mobile-break {
+  display: inline;
+}
+
+/* Mobile: Text unterhalb – Abstand stark reduziert */
+@media (max-width: 767px) {
+  .lead .mobile-break {
+    display: block;
+    margin-top: 0.05rem; /* Minimaler Abstand */
+    line-height: 1.1;    /* Kompaktere Zeilenhöhe */
+  }
+}
+</style>
       </div>
     </div>
   </header>
@@ -475,6 +494,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
 
