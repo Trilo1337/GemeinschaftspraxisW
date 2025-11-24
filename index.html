@@ -699,25 +699,30 @@ function setupOverlay(btnId, overlayId, closeId, textId, mailId, waId, defaultTe
   const close = document.getElementById(closeId);
   const textarea = document.getElementById(textId);
   const mail = document.getElementById(mailId);
-  const wa = document.getElementById(waId);
+  const wa = waId ? document.getElementById(waId) : null;
 
   if(btn) btn.addEventListener('click', () => { overlay.style.display = 'flex'; });
   if(close) close.addEventListener('click', () => { overlay.style.display = 'none'; });
 
   window.addEventListener('click', e => { if (e.target === overlay) overlay.style.display = 'none'; });
 
-  if(mail && wa && defaultText){
-    mail.addEventListener('click', () => {
+  if(mail && defaultText){
+    mail.addEventListener('click', (e) => {
+      e.preventDefault();
       const text = textarea.value.trim();
       if (!text) { alert('Bitte geben Sie Ihre Angabe ein'); return; }
       const encoded = encodeURIComponent(defaultText.replace('${text}', text));
-      mail.href = `mailto:info@gemeinschaftspraxis-w.example?subject=${encodeURIComponent(subject)}&body=${encoded}`;
+      window.location.href = `mailto:info@gemeinschaftspraxis-w.example?subject=${encodeURIComponent(subject)}&body=${encoded}`;
     });
-    wa.addEventListener('click', () => {
+  }
+  
+  if(wa && defaultText){
+    wa.addEventListener('click', (e) => {
+      e.preventDefault();
       const text = textarea.value.trim();
       if (!text) { alert('Bitte geben Sie Ihre Angabe ein'); return; }
       const encoded = encodeURIComponent(defaultText.replace('${text}', text));
-      wa.href = `https://wa.me/4912345678?text=${encoded}`;
+      window.open(`https://wa.me/4912345678?text=${encoded}`, '_blank');
     });
   }
 }
@@ -766,6 +771,7 @@ window.addEventListener('click', e => {
 </div>
 </body>
 </html>
+
 
 
 
