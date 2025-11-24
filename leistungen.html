@@ -645,11 +645,42 @@ footer {
       }
     }
     
+    /* Mobile-spezifische Stile für deutlich auffälligeres Kamera-Symbol */
+    @media (max-width: 768px) {
+      .video-icon {
+        width: 52px;
+        height: 52px;
+        filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.6));
+      }
+      
+      @keyframes pulse-glow {
+        0%, 100% {
+          filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.6));
+          transform: translateY(2px) scale(1);
+        }
+        50% {
+          filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.9));
+          transform: translateY(2px) scale(1.1);
+        }
+      }
+      
+      .video-link {
+        margin-left: 18px;
+      }
+    }
+    
     .video-icon:hover,
     .video-icon:active {
       transform: scale(1.15) translateY(2px);
       filter: drop-shadow(0 0 10px var(--sky-600)) brightness(1.2);
       animation: none;
+    }
+    
+    @media (max-width: 768px) {
+      .video-icon:active {
+        transform: scale(1.25) translateY(2px);
+        filter: drop-shadow(0 0 15px var(--sky-600)) brightness(1.3);
+      }
     }
     
     .video-link {
@@ -705,6 +736,7 @@ footer {
       transform: scale(1.05);
     }
   </style>
+</section>
  </section>
   <!-- Hausbesuche -->
   <section id="hausbesuche" class="leistung-section">
@@ -758,6 +790,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
 
