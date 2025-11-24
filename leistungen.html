@@ -439,6 +439,18 @@ footer {
   .hero h2{font-size:20px;}
   .contact-headers h2{font-size:20px;}
 }
+	.mobile-line-break {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-line-break {
+    display: block;
+    height: 0;
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -985,6 +997,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 </body>
 </html>
+
 
 
 
